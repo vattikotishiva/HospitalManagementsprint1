@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Patient Details
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   
+    <h1>
+        <button>Back to Admin</button>
+        <center>Patient Details</center>
+    </h1>
+    <hr>
+    <div class="body">
+    <div class="employee-form">
+        <form onsubmit="event.preventDefault();onFormSubmit();" id="patientForm" autocomplete="off">
+            <div>
+                <label>PatientID</label><label class="validation-error " id="fullNameValidationError">This field is
+                    required.</label>
+                
+                    <input type="text"  class="input" id="randomNumberInput" name="randomNumberInput" >
+            </div>
+            <div>
+                <label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is
+                    required.</label>
+                <input type="text" class="input" name="fullName" id="fullName">
+            </div>
+            <div>
+                <label>Date of Birth</label>
+                <input type="text" class="input" name="dob" id="dob">
+            </div>
+            <div>
+                <label>Gender</label>
+                <input type="text" class="input" name="gender" id="gender">
+            </div>
+            <div>
+                <label>Adress for Communication</label>
+                <input type="text" class="input" name="addres" id="addres">
+            </div>
+            <div>
+                <label>Contact Information</label>
+                <input type="text" class="input" name="phn" id="phn">
+            </div>
+            <div>
+                <label>Date of Admission</label>
+                <input type="text" class="input" name="doa" id="doa">
+            </div>
+            <div>
+                <label>Specalist</label>
+                <input type="text" class="input"  name="Specalist" id="Specalist">
+            </div>
+            <div>
+                <label>Billing Details</label>
+                <input type="text" class="input"  name="Bdetails" id="Bdetails">
+            </div>
+            <div>
+                <label>Any Other Information</label>
+                <input type="text" class="input"  name="Information" id="Information">
+            </div>
+            <div class="form-action-buttons">
+                <input type="submit" class="input" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+    <div id="successMessage" class="success-message hide">Data successfully inserted!</div> <!-- Success message -->
+    <div id="deleteMessage" class="success-message hide" style="color: red;">Data successfully Deleted!</div> <!-- Success message -->
+    <br />
+    <div class="employees-table">
+        <table class="list" id="employeeList">
+            <thead>
+                <tr>
+                    
+                    <th>Full Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Adress</th>
+                    <th>Contact Information</th>
+                    <th>Date of Admission</th>
+                    <th>Specalist</th>
+                    <th>Billing Details</th>
+                    <th>PatientID</th>
+                    <th>Modify</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Function to generate a random number
+        function PatientID() {
+          return Math.floor(Math.random() * 1000); // Generates a random number between 0 and 999
+        }
+    
+        // Set the default random number when the page loads
+        window.onload = function() {
+    var form = document.getElementById('patientForm');
+    var successMessage = document.getElementById('successMessage');
+
+    // Function to handle form submission
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Simulate data insertion operation
+        // In a real application, you would perform an AJAX request or interact with a backend server here
+        // For demonstration purposes, we'll just display the success message after a short delay
+        setTimeout(function() {
+            // Show the success message
+            successMessage.classList.remove('hide');
+            // Reset the form
+            form.reset();
+            // Hide the success message after 3 seconds
+            setTimeout(function() {
+                successMessage.classList.add('hide');
+            }, 6000);
+        }, 1000); // Simulating insertion delay with 1 second
+    });
+};
+
+        
+      </script>
+</body>
+
+</html>
